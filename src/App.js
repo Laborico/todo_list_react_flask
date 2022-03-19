@@ -17,6 +17,8 @@ function App() {
         >
           Learn React
         </a>
+
+        <p>My Token = {window.token}</p>
       </header>
     </div>
   );

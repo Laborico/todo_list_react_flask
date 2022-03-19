@@ -1,6 +1,7 @@
 {
   "name": "todo_list_react_flask",
   "version": "0.1.0",
+  "homepage": "/static/react",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
