@@ -25,7 +25,7 @@ class TaskModel(db.Model):
     task_id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
     task_name = db.Column(db.String(100))
-    task_name = db.Column(db.Text)
+    task_desc = db.Column(db.Text)
 
     
     
