@@ -18,4 +18,6 @@ from auth_middleware import *
 from api_v2 import *
 
 if __name__ == "__main__":
+    app.jinja_env.auto_reload = True
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.run(debug=True)
