@@ -1,15 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap');
 
 .date-hour{
-    display: flex;
     background-color: black;
     color: white;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
     margin: auto;
     height: 100%;
-    align-items:center;
-    justify-content:center;
 }
 
 .centered{
@@ -17,4 +12,19 @@
     justify-content: center;
     align-items:center;
     margin: auto;
+}
+
+.text{
+    font-family: 'Roboto', sans-serif;
+}
+
+.text-centered{
+    align-items:center;
+    text-align: center;
+}
+
+.center-items{
+    display: flex;
+    align-items:center;
+    justify-content:center;
 }

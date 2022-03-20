@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, Container } from "react-bootstrap";
 import './navbar.css'
 
-function Page_navbar(){
+function PageNavbar(){
     return(
         <Navbar bg="ligth" fixed="top" className="remove-position">
             <Container fluid>
@@ -19,4 +19,4 @@ function Page_navbar(){
     );
 }
 
-export default Page_navbar;
+export default PageNavbar;
