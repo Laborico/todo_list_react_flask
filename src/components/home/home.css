@@ -11,3 +11,10 @@
     align-items:center;
     justify-content:center;
 }
+
+.centered{
+    width: 90%;
+    justify-content: center;
+    align-items:center;
+    margin: auto;
+}

@@ -19,7 +19,7 @@ export const Time = () => {
     return(
         <>  
             <Row>
-                <h1> {date.toLocaleTimeString([], {timeStyle: 'short'})}</h1>
+                <h1 className='hour'> {date.toLocaleTimeString([], {timeStyle: 'short'})}</h1>
                 <h2> {moment().format('ddd MMM Do, YYYY')}</h2>
             </Row>
         </>
