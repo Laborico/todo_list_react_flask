@@ -1,8 +1,7 @@
-from crypt import methods
-import json
 from app import app
-from flask import request, abort, jsonify
+from flask import request, jsonify
 from models import db, UserModel as user, TaskModel as task
+import re
 
 @app.route('/api/v1/register', methods=['POST'])
 def register():
@@ -20,6 +19,9 @@ def register():
     
     if user.query.filter_by(email = email).first():
         return "Error: Email already registered!", 400
+    
+    if not re.match(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", email):
+        return "Error: Invalid email", 400
     
     new_user = user(username = username, email = email)
     new_user.set_password(password)
