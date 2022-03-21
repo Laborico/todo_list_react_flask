@@ -4,6 +4,7 @@ import {Row, Col, Button} from 'react-bootstrap';
 import Time from '../time/time';
 import PageNavbar from "../navbar/navbar";
 import ModalForm from "../modalform/modalform";
+import TaskList from "../tasklist/tasklist";
 
 function Home(){
     const [show, setShow] = useState(false);
@@ -21,7 +22,7 @@ function Home(){
                 <div className = "centered">
                     <PageNavbar></PageNavbar>
 
-                    <Row>
+                    <Row className='spaced'>
                         <Col md={9}>
                             <h1 className="text text-centered">
                                 Welcome PLACEHOLDER!
@@ -42,6 +43,17 @@ function Home(){
                         </Col>
                     </Row>
                     
+                    <Row className='spaced'>
+                        <Col md={12}>
+                            <h2 className="text text-centered">
+                                Your ToDo List:
+                            </h2>
+                        </Col>
+                    </Row>
+
+                    <TaskList></TaskList>
+
+
                 </div>
             </Col>
             <Col md={3} className="date-hour text text-centered center-items">

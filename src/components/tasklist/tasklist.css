@@ -1,0 +1,23 @@
+.task-list{
+    overflow-y: scroll;
+    width: 80% !important;
+    max-height: 70vh;
+}
+.task-list::-webkit-scrollbar {
+    width: 0;
+}
+
+.acc-item{
+    margin: 1.5em;
+    border: 1px solid rgba(0,0,0,.125) !important;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: white;
+}
+
+.buttons{
+    display: flex;
+}
+
+.buttons > button {
+    margin: 0.5em;
+}
