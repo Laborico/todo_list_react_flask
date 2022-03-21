@@ -67,7 +67,9 @@ function TaskList() {
                                             Edit Task
                                         </Button>
 
-                                        <Button variant="danger" onClick={deleteTask} key={taskdata[index].task_id}>Delete Task</Button>
+                                        <Button variant="danger" taskid = {taskdata[index].task_id} key={taskdata[index].task_id} onClick={deleteTask}>
+                                            Delete Task
+                                        </Button>
                                     </Col>
                                 </Row>
 
