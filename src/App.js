@@ -1,11 +1,11 @@
 import './App.css';
-import Login from './components/login/login';
+import Signup from './components/signup/signup';
 import { Container } from 'react-bootstrap';
 
 function App() {
   return (
     <Container fluid>
-      <Login />
+      <Signup />
     </Container>
   );
 }
