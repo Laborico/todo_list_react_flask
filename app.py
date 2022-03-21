@@ -14,7 +14,6 @@ def create_table():
 
 from routes import *
 from api_v1 import *
-from auth_middleware import *
 from api_v2 import *
 
 if __name__ == "__main__":
