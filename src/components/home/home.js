@@ -7,6 +7,7 @@ import ModalForm from "../modalforms/newtask";
 import TaskList from "../tasklist/tasklist";
 
 function Home(){
+
     const [show, setShow] = useState(false);
 
     const openModal = () => setShow(true);

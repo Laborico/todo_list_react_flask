@@ -18,7 +18,7 @@ function Signup(){
         <Row className="form-container">
             <Form className="text-center login-form ">
                 <h3 className="form-title">Signup</h3>
-                <p> Already registered? <a href="/">Login</a></p>
+                <p> Already registered? <a href="/login">Login</a></p>
 
                 <Form.Group className="mt-3">
                     <Form.Label>Nickname</Form.Label>

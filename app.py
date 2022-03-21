@@ -12,9 +12,9 @@ db.init_app(app)
 def create_table():
     db.create_all()
 
-from routes import *
 from api_v1 import *
 from api_v2 import *
+from routes import *
 
 if __name__ == "__main__":
     app.jinja_env.auto_reload = True
