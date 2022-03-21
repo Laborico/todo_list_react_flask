@@ -24,7 +24,6 @@ function TaskList() {
     const closeModal = () => setShow(false);
 
     const editTask = async (id, name, description) => {
-        console.log(id, name, description)
         closeModal();
         let promise = new Promise((resolve, reject) => {
             setTimeout(() => resolve("Edit Works"), 100)

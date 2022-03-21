@@ -1,11 +1,11 @@
 import './App.css';
-import Home from './components/home/home';
+import Login from './components/login/login';
 import { Container } from 'react-bootstrap';
 
 function App() {
   return (
     <Container fluid>
-      <Home />
+      <Login />
     </Container>
   );
 }
