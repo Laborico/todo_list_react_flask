@@ -1,7 +1,9 @@
-import React, { useState , useEffect } from "react";
+import React, { useState , useLayoutEffect } from "react";
 import {Accordion, Container, Button, Row, Col} from 'react-bootstrap';
 import ModalForm from "../modalforms/edittasks";
 import './tasklist.css'
+import { authFetch } from "../../auth/index";
+
 
 function TaskList() {
 
@@ -9,11 +11,20 @@ function TaskList() {
     const [show, setShow] = useState(false);
     const [taskid, setTaskId] = useState();
 
+    const getid = async () => {
+        const response = await authFetch("/api/v2/identity")
+        .then(r => r.json())
+        .then(res => {
+            window.user_id = res.id
+        })
+    };
+
     const getApiData = async () => {
-        const response = await fetch(
-            "http://127.0.0.1:5000/api/v1/tasks?user_id=1"
+        const response = await authFetch(
+            "/api/v2/tasks?user_id=" + window.user_id
         ).then((response) => response.json());
-    
+        
+
         setTaskData(response);
     };
 
@@ -44,7 +55,8 @@ function TaskList() {
         alert(result);
     }
 
-    useEffect(() => {
+    useLayoutEffect(async () => {
+        await getid();
         getApiData();
       }, []);
     

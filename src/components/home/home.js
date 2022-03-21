@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './home.css';
 import {Row, Col, Button} from 'react-bootstrap';
 import Time from '../time/time';

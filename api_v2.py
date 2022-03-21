@@ -1,3 +1,4 @@
+from crypt import methods
 from app import app
 from flask import request, jsonify
 from models import UserModel as user
@@ -47,6 +48,13 @@ def refresh():
     return (jsonify(
         access_token = create_access_token(identity=current_user)
         ), 200)
+    
+@app.route('/api/v2/identity', methods=['GET'])
+@jwt_required()
+def getidentity():
+    return (jsonify(
+        id = get_jwt_identity()
+    ) , 200)
 
 @app.route('/api/v2/users', methods=['GET'])
 @jwt_required()
