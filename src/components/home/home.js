@@ -3,7 +3,7 @@ import './home.css';
 import {Row, Col, Button} from 'react-bootstrap';
 import Time from '../time/time';
 import PageNavbar from "../navbar/navbar";
-import ModalForm from "../modalform/modalform";
+import ModalForm from "../modalforms/newtask";
 import TaskList from "../tasklist/tasklist";
 
 function Home(){
@@ -12,7 +12,8 @@ function Home(){
     const openModal = () => setShow(true);
     const closeModal = () => setShow(false);
     const handleSubmit = () => {
-        alert("Works")
+        closeModal();
+        alert("Works");
     };
 
 

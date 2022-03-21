@@ -3,9 +3,23 @@ import {Form, Modal, Button} from 'react-bootstrap';
 
 export default class ModalForm extends Component {
 
-  state={ name: null }
+  state={ 
+    name: null,
+    description: null 
+  }
 
-  handleChange = (e) => this.setState({name: e.target.value})
+  handleChange = (e) => {
+    var input = e.target.getAttribute('placeholder');
+    if(input === "Task name") {
+        this.setState({
+            name: e.target.value
+        })
+    } else {
+        this.setState({
+            description: e.target.value
+        })
+    }
+  }
 
   render(){
     return(
@@ -21,12 +35,12 @@ export default class ModalForm extends Component {
               <Form.Control type="text" onChange={this.handleChange} value={this.state.name} placeholder="Task name"/>    
 
               <Form.Label>Task Description: </Form.Label>
-              <Form.Control as="textarea" onChange={this.handleChange} value={this.state.name} placeholder="Task Description"/>       
+              <Form.Control as="textarea" onChange={this.handleChange} value={this.state.description} placeholder="Task Description"/>       
           </Form.Group>
       </Modal.Body>
 
       <Modal.Footer>
-          <Button variant="success" type="submit" onClick={() => this.props.handleSubmit(this.state.name)}>
+          <Button variant="success" type="submit" onClick={() => this.props.handleSubmit(this.state.name, this.state.description)}>
               Create task
           </Button>
       </Modal.Footer>
