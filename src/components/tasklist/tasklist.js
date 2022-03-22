@@ -36,13 +36,21 @@ function TaskList() {
 
     const editTask = async (id, name, description) => {
         closeModal();
-        let promise = new Promise((resolve, reject) => {
-            setTimeout(() => resolve("Edit Works"), 100)
-        });
-    
-        let result = await promise
 
-        alert(result);
+        let opts = {
+            "task_id" : id,
+            "task_name": name,
+            "task_desc": description
+        }
+
+
+        await authFetch("/api/v2/tasks", {
+            method: 'PUT',
+            headers: { 
+                'Content-Type': 'application/json'
+        }, body: JSON.stringify(opts) })
+
+        window.location.reload();
     }
 
     const deleteTask = async () => {
