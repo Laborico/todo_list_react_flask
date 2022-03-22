@@ -52,7 +52,7 @@ def find_user():
         ), 200)
 
 
-@app.route('/api/v2/users', methods=['DELETE'])
+@app.route('/api/v1/users', methods=['DELETE'])
 def delete_user():
     if 'user_id' in request.args:
         user_id = int(request.args['user_id'])
