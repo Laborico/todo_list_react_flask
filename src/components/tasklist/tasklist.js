@@ -29,7 +29,7 @@ function TaskList() {
     };
 
     const openModal = (e) => {
-        setTaskId(e.target.getAttribute('taskid') - 1)
+        setTaskId(e.target.getAttribute('taskid'))
         setShow(true);
     }
     const closeModal = () => setShow(false);
@@ -72,22 +72,22 @@ function TaskList() {
         <Container className="task-list">
             <Accordion defaultActiveKey="0">
                 {taskdata && Object.keys(taskdata).length === 0 && <p className="text-centered"> You dont't have any pending task:) </p>}
-                {taskdata && Object.keys(taskdata).map((key, index) => {
+                {taskdata && Object.keys(taskdata).map((key) => {
                     return (
-                        <Accordion.Item key={taskdata[index].task_id} eventKey={taskdata[index].task_id} className="acc-item">
-                            <Accordion.Header as="div">{taskdata[index].task_name}</Accordion.Header>
+                        <Accordion.Item key={taskdata[key].task_id} eventKey={taskdata[key].task_id} className="acc-item">
+                            <Accordion.Header as="div">{taskdata[key].task_name}</Accordion.Header>
                             
-                            <Accordion.Body key={taskdata[index].task_id}>
+                            <Accordion.Body key={taskdata[key].task_id}>
 
-                                {taskdata[index].task_desc}
+                                {taskdata[key].task_desc}
 
                                 <Row>
                                     <Col md={12} className="buttons justify-content-end">
-                                        <Button variant="primary" taskid = {taskdata[index].task_id} key={taskdata[index].task_id} onClick={openModal} >
+                                        <Button variant="primary" taskid = {key} key={taskdata[key].task_id} onClick={openModal} >
                                             Edit Task
                                         </Button>
 
-                                        <Button variant="danger" taskid = {taskdata[index].task_id} key={taskdata[index].task_id} onClick={deleteTask}>
+                                        <Button variant="danger" taskid = {taskdata[key].task_id} key={taskdata[key].task_id} onClick={deleteTask}>
                                             Delete Task
                                         </Button>
                                     </Col>

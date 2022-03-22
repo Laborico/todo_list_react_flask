@@ -141,5 +141,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "cypress": "^9.5.2"
   }
 }
