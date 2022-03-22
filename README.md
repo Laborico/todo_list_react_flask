@@ -9,17 +9,48 @@ https://todo-list-react-flask.herokuapp.com/
 
 ## Why React and Flask?
 
-Well, for a bit of time I wanted to created an app using both of the frameworks. The lack of in-depth tutorials and examples discourage me to it. But I needed an app to showcase how to add Cypress to a CI/CD pipeline and I had a long weekend a head, so, why not kill two birds with one stone?:D
+Well, for a bit of time I wanted to created an app using both of the frameworks. The lack of in-depth tutorials and examples discourage me to do it. But I needed an app to showcase how to add Cypress to a CI/CD pipeline and I had a long weekend a head, so, why not kill two birds with one stone?:D
 
 ## How to run
+
+#### Requirements:
+
+```bash
+npm >= 16.14.0
+python >= 3.8.0
+```
+
+#### Steps:
+
+1. (Suggestion) Create a [virtual environment](https://www.tutorialspoint.com/how-to-create-a-virtual-environment-in-python) for python.
+2. Run `pip install -r requirements.txt` on the terminal (this will install all the needed python packages needed).
+3. Then, run `npm install` on the terminal (this will install all the needed node packages needed).
+4. To start the server run `flask run`.
+5. Go to 127.0.0.1:5000 (or localhost:5000) and you should see the app in there:D
+
+
+
+### Your changes are not showing up?
+
+When running an app with a normal implementation of React + Flask, you'll notice it requires you to run two servers, one for React and another one for Flask. But this app only requieres you to run the Flask server. That's because I changed some configurations on React to make it work more freely with Flask.
+
+#### React
+
+Every time you make a change to React code, you'll need to run `npm run build` and restart the Flask server (or run `export FLASK_ENV=development` on the terminal to enable automatic template updates and avoid restarting the server itself).
+
+#### Flask
+
+Every time you make a change to Flask code, you'll need to restart the server (or run `export FLASK_ENV=development` on the terminal to enable the auto reload).
 
 
 
 ## Tests
 
+As I mentioned, I needed an app to showcase how to add Cypress to a CI/CD pipeline, therefore all the test are on Cypress.
 
+Run `npx cypress run` to run all the tests or `npx cypress open` to open Cypress and run a specific test suite.
 
-### Know issues:
+### Known issues:
 
 - Refresh token not working from UI
 
@@ -32,6 +63,8 @@ Well, for a bit of time I wanted to created an app using both of the frameworks.
 - Not fully responsive
 
 - Some placeholders still on place
+
+- Login not being the landing page
 
   
 
