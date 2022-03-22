@@ -1,20 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import './home.css';
 import {Row, Col, Button} from 'react-bootstrap';
 import Time from '../time/time';
 import PageNavbar from "../navbar/navbar";
 import ModalForm from "../modalforms/newtask";
 import TaskList from "../tasklist/tasklist";
+import { authFetch } from "../../auth/index";
 
 function Home(){
 
     const [show, setShow] = useState(false);
+    const taskref =  useRef();
 
     const openModal = () => setShow(true);
     const closeModal = () => setShow(false);
-    const handleSubmit = () => {
+    const handleSubmit =  async (name, desc) => {
         closeModal();
-        alert("Works");
+
+        let opts = {
+            "user_id" : window.user_id,
+            "task_name": name,
+            "task_desc": desc
+        }
+
+
+        await authFetch("/api/v2/tasks", {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json'
+            }, body: JSON.stringify(opts) })
+
+        window.location.reload();
     };
 
 
@@ -53,7 +69,7 @@ function Home(){
                         </Col>
                     </Row>
 
-                    <TaskList></TaskList>
+                    <TaskList ref = {taskref}></TaskList>
 
 
                 </div>

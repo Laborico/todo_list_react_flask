@@ -63,6 +63,7 @@ function TaskList() {
     return(
         <Container className="task-list">
             <Accordion defaultActiveKey="0">
+                {taskdata && Object.keys(taskdata).length === 0 && <p className="text-centered"> You dont't have any pending task:) </p>}
                 {taskdata && Object.keys(taskdata).map((key, index) => {
                     return (
                         <Accordion.Item key={taskdata[index].task_id} eventKey={taskdata[index].task_id} className="acc-item">
