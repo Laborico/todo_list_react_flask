@@ -10,7 +10,6 @@ import { authFetch } from "../../auth/index";
 function Home(){
 
     const [show, setShow] = useState(false);
-    const taskref =  useRef();
 
     const openModal = () => setShow(true);
     const closeModal = () => setShow(false);
@@ -69,7 +68,15 @@ function Home(){
                         </Col>
                     </Row>
 
-                    <TaskList ref = {taskref}></TaskList>
+                    <TaskList></TaskList>
+
+                    <Row className='footer'>
+                        <Col md={12}>
+                            <p className="text text-centered">
+                                Developed by Laborico. Copyleft &#127279;. Made for Fun:)
+                            </p>
+                        </Col>
+                    </Row>
 
 
                 </div>

@@ -32,3 +32,9 @@
 .spaced{
     padding: 1em;
 }
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 67.5%;
+}
