@@ -19,6 +19,7 @@
 
 let userData
 let taskData
+let accesstoken
 
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
@@ -36,6 +37,13 @@ module.exports = (on, config) => {
     },
     gettaskData: () => {
       return taskData
+    },
+
+    setToken: (token) => {
+      return (accesstoken = token)
+    },
+    getToken: () => {
+      return accesstoken
     }
 
   })
