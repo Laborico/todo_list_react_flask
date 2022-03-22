@@ -50,6 +50,21 @@ def find_user():
         username = user_data.username,
         email = user_data.email
         ), 200)
+
+
+@app.route('/api/v2/users', methods=['DELETE'])
+def delete_user():
+    if 'user_id' in request.args:
+        user_id = int(request.args['user_id'])
+    else:
+        return "Error: No user_id provided. Please provide a user_id." , 400
+
+    user_data = user.query.get(user_id)
+
+    db.session.delete(user_data)
+    db.session.commit()
+
+    return 'User deleted sucessfully!', 200
     
 @app.route('/api/v1/tasks', methods=['POST'])
 def create_task():

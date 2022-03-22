@@ -8,6 +8,7 @@ from flask_jwt_extended import (
 )
 
 jwt = JWTManager(app)
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = 3600
 
 @app.route('/api/v2/register', methods=['POST'])
 def register_v2():
@@ -62,19 +63,9 @@ def find_user_v2():
 
 @app.route('/api/v2/users', methods=['DELETE'])
 @jwt_required()
-def delete_users():
-    if 'user_id' in request.args:
-        user_id = int(request.args['user_id'])
-    else:
-        return "Error: No user_id provided. Please provide a user_id." , 400
+def delete_user_v2():
+    return delete_user()
 
-
-    user_data = user.query.get(user_id)
-
-    db.session.delete(user_data)
-    db.session.commit()
-
-    return 'User deleted sucessfully!', 200
 
 
 @app.route('/api/v2/tasks', methods=['POST'])
