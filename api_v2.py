@@ -1,4 +1,3 @@
-from crypt import methods
 from app import app
 from flask import request, jsonify
 from models import UserModel as user
@@ -60,7 +59,24 @@ def getidentity():
 @jwt_required()
 def find_user_v2():
     return find_user()
-    
+
+@app.route('/api/v2/users', methods=['DELETE'])
+@jwt_required()
+def delete_users():
+    if 'user_id' in request.args:
+        user_id = int(request.args['user_id'])
+    else:
+        return "Error: No user_id provided. Please provide a user_id." , 400
+
+
+    user_data = user.query.get(user_id)
+
+    db.session.delete(user_data)
+    db.session.commit()
+
+    return 'User deleted sucessfully!', 200
+
+
 @app.route('/api/v2/tasks', methods=['POST'])
 @jwt_required()
 def create_task_v2():
