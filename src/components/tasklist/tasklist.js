@@ -53,14 +53,14 @@ function TaskList() {
         window.location.reload();
     }
 
-    const deleteTask = async () => {
-        let promise = new Promise((resolve, reject) => {
-            setTimeout(() => resolve("Delete Works"), 100)
-        });
-    
-        let result = await promise
+    const deleteTask = async (e) => {
+        let task_id = e.target.getAttribute('taskid')
+        
+        await authFetch("/api/v2/tasks?task_id=" + task_id, {
+            method: 'DELETE',
+        })
 
-        alert(result);
+        window.location.reload();
     }
 
     useLayoutEffect(async () => {
