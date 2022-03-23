@@ -11,4 +11,7 @@ workflows:
   build:
     jobs:
       - cypress/install
-      - cypress/run
+      - cypress/run:
+          post-steps:
+            - store_test_results:
+                path: cypress/results
