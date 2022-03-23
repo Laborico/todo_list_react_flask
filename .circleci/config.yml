@@ -12,5 +12,7 @@ workflows:
     jobs:
       - cypress/install
       - cypress/run:
-        requires:
-          cypress/install
+          command: 'npm run report'
+          post-steps:
+            - store_test_results:
+                path: cypress/results
