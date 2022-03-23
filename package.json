@@ -68,7 +68,8 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js", 
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run --browser chrome --headless"
+    "cypress:run": "cypress run --browser chrome --headless",
+    "report": "cypress run --record false --reporter mocha-multi-reporters --reporter-options configFile=reporter-config.json"
   },
   "eslintConfig": {
     "extends": [
