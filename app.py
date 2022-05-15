@@ -15,6 +15,7 @@ def create_table():
 from api_v1 import *
 from api_v2 import *
 from api_v3 import *
+from api_v4 import *
 from routes import *
 
 if __name__ == "__main__":
