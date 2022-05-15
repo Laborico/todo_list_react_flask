@@ -26,7 +26,7 @@ function Login(){
             .then(token => {
                 if (token.access_token){
                     login(token)     
-                    window.location.href = '/';
+                    window.location.href = '/home';
                 }
                 else {
                     console.log("Please type in correct username/password")
