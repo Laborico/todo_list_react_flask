@@ -25,7 +25,7 @@ function Login(){
             .then(r => r.json())
             .then(token => {
                 if (token.access_token){
-                    login(token)     
+                    login(token)
                     window.location.href = '/home';
                 }
                 else {
@@ -38,9 +38,9 @@ function Login(){
         setUsername(e.target.value)
       }
     
-      const handlePasswordChange = (e) => {
-        setPassword(e.target.value)
-      }
+    const handlePasswordChange = (e) => {
+    setPassword(e.target.value)
+    }
 
     return(
         <Row className="form-container" >

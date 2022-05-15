@@ -11,14 +11,6 @@ function TaskList() {
     const [show, setShow] = useState(false);
     const [taskid, setTaskId] = useState();
 
-    const getid = async () => {
-        const response = await authFetch("/api/v2/identity")
-        .then(r => r.json())
-        .then(res => {
-            window.user_id = res.id
-        })
-    };
-
     const getApiData = async () => {
         const response = await authFetch(
             "/api/v2/tasks?user_id=" + window.user_id
@@ -64,7 +56,6 @@ function TaskList() {
     }
 
     useLayoutEffect(async () => {
-        await getid();
         getApiData();
       }, []);
     
