@@ -76,7 +76,7 @@ def create_task_v2():
     
 @app.route('/api/v2/tasks', methods=['GET'])
 @jwt_required()
-def get_user_tasks_V2():
+def get_user_tasks_v2():
     return get_user_tasks()
 
 @app.route('/api/v2/tasks', methods=['PUT'])
