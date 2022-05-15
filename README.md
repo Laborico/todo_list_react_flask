@@ -30,6 +30,52 @@ python >= 3.8.0
 
 
 
+#### Why so many APIs?
+
+Besides needing an app to show Cypress on a CI/CD pipeline, I needed and API to show how to test them, so why not expand a bit on this project:D
+
+**v1**
+
+This is the base API, it does everything that the app needs
+
+```
+- Register/Creates users
+- Search users
+- Delete users
+- Create tasks
+- Get tasks from users
+- Update/modify tasks
+- Delete tasks
+```
+
+**v2**
+
+Has the same methods from v1 (even calls the functions), but uses JWT authentication, is the one used by the front end
+
+```
+- Login for users (access token)
+- Refresh access token
+- Gets identity from token
+- The rest of the functioanlity is the same as v1
+```
+
+**v3**
+
+Has the same methods from v1 (even calls the functions), but uses Basic Authentication, you have to send the credentials on the header
+
+```
+- Login for users (username and password)
+- The rest of the functioanlity is the same as v1
+```
+
+**v4**
+
+Has the same methods from v1 (even calls the functions), but uses API key 123456790, you can send the key either on the header or the params
+
+```
+- Same functioanlity as v1
+```
+
 ### Your changes are not showing up?
 
 When running an app with a normal implementation of React + Flask, you'll notice it requires you to run two servers, one for React and another one for Flask. But this app only requieres you to run the Flask server. That's because I changed some configurations on React to make it work more freely with Flask.
@@ -62,7 +108,7 @@ Run `npx cypress run` to run all the tests or `npx cypress open` to open Cypress
 
 - Not fully responsive
 
-- Some placeholders still on place
+- ~~Some placeholders still on place~~
 
 - Login not being the landing page
 
